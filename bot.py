@@ -5,7 +5,7 @@ from telegram.ext import Application, CommandHandler, ContextTypes
 # ============================================================
 # 1. YAHAN APNA BOT TOKEN DALO
 # ============================================================
-BOT_TOKEN = "PASTE_YOUR_BOT_TOKEN_HERE"
+BOT_TOKEN = "8875158541:AAEX6A0cYzwdJeESRrHX-APSiALHHTQRgJM"
 
 # ============================================================
 # 2. YAHAN APNE CHANNELS ADD / CHANGE KARO
@@ -16,10 +16,10 @@ BOT_TOKEN = "PASTE_YOUR_BOT_TOKEN_HERE"
 # Jitne channels chaho utne add kar sakte ho.
 # ============================================================
 CHANNELS = {
-    "🔥 𝐉𝐀𝐋𝐁𝐀": "https://t.me/YOUR_JALBA_CHANNEL",
-    "💀 𝐃𝐃𝐎𝐒": "https://t.me/YOUR_DDOS_CHANNEL",
-    "📢 𝐌𝐀𝐈𝐍 𝐂𝐇𝐀𝐍𝐍𝐄𝐋": "https://t.me/YOUR_MAIN_CHANNEL",
-    "🎮 𝐆𝐀𝐌𝐈𝐍𝐆": "https://t.me/YOUR_GAMING_CHANNEL",
+    "🔥 𝐉𝐀𝐋𝐁𝐀": "https://t.me/+ncQKOjYSU3o5MGZl",
+    "💀 𝐓𝐑𝐗": "https://t.me/+R--o4zJimuxhNDM1",
+    "📢 𝐓𝐑𝐗 II": "https://t.me/YOUR_MAIN_CHANNEL",
+    "🎮 𝗚𝗿𝗼𝘂𝗽": "https://t.me/+LZX1DMqIaUs0Mjc1",
 }
 
 # ============================================================
