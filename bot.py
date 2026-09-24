@@ -4,17 +4,17 @@ from flask import Flask
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import Application, CommandHandler, ContextTypes
 
-BOT_TOKEN = os.getenv("BOT_TOKEN", "PASTE_YOUR_BOT_TOKEN_HERE")
+BOT_TOKEN = os.getenv("BOT_TOKEN", "8875158541:AAEX6A0cYzwdJeESRrHX-APSiALHHTQRgJM")
 
 CHANNELS = {
-    "🔥 𝐉𝐀𝐋𝐁𝐀": "https://t.me/YOUR_JALBA_CHANNEL",
-    "💀 𝐃𝐃𝐎𝐒": "https://t.me/YOUR_DDOS_CHANNEL",
-    "📢 𝐌𝐀𝐈𝐍 𝐂𝐇𝐀𝐍𝐍𝐄𝐋": "https://t.me/YOUR_MAIN_CHANNEL",
-    "🎮 𝐆𝐀𝐌𝐈𝐍𝐆": "https://t.me/YOUR_GAMING_CHANNEL",
+    "🔥 𝐉𝐀𝐋𝐁𝐀": "https://t.me/+ncQKOjYSU3o5MGZl",
+    "💀 𝐓𝐑𝐗": "https://t.me/+R--o4zJimuxhNDM1",
+    "📢 𝐓𝐑𝐗II": "https://t.me/+oiU1AGIiPWQ0NzU1",
+    "🎮 𝗚𝗿𝗼𝘂𝗽": "https://t.me/+LZX1DMqIaUs0Mjc1",
 }
 
-DEVELOPER_NAME = "⚡ 𝐃𝐄𝐕𝐄𝐋𝐎𝐏𝐄𝐑"
-DEVELOPER_LINK = "https://t.me/Sakshamvenus"
+Owner_NAME = "⚡ 𝐎𝐰𝐧𝐞𝐫"
+Owner_LINK = "https://t.me/MR3CHOUHAN4"
 
 web = Flask(__name__)
 
@@ -43,7 +43,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
         f"🔗 𝐔𝐬𝐞𝐫𝐧𝐚𝐦𝐞 : {username}\n\n"
         "✨ 𝐖𝐞𝐥𝐜𝐨𝐦𝐞 𝐭𝐨 𝐦𝐲 𝐁𝐨𝐭!\n"
         "📢 𝐂𝐡𝐞𝐜𝐤 𝐨𝐮𝐫 𝐜𝐡𝐚𝐧𝐧𝐞𝐥𝐬 𝐛𝐞𝐥𝐨𝐰 👇\n\n"
-        "⚡ 𝐃𝐞𝐯𝐞𝐥𝐨𝐩𝐞𝐝 𝐰𝐢𝐭𝐡 𝐋𝐨𝐯𝐞 𝐛𝐲 𝐒𝐚𝐤𝐬𝐡𝐚𝐦"
+        "⚡ 𝐃𝐞𝐯𝐞𝐥𝐨𝐩𝐞𝐝 𝐰𝐢𝐭𝐡 𝐋𝐨𝐯𝐞 𝐛𝐲 @sakshamvenus"
     )
 
     buttons = [InlineKeyboardButton(label, url=link) for label, link in CHANNELS.items()]
