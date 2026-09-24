@@ -31,7 +31,7 @@ BOT_TOKEN = os.getenv("BOT_TOKEN")
 CHANNELS = {
     "🔥 𝐉𝐀𝐋𝐁𝐀": "https://t.me/+ncQKOjYSU3o5MGZl",
     "💀 𝗧𝗥𝗫": "https://t.me/+R--o4zJimuxhNDM1",
-    "📢 𝗧𝗥𝗫 II": "https://t.me/+ncQKOjYSU3o5MGZl",
+    "📢 𝗧𝗥𝗫 II": "https://t.me/+oiU1AGIiPWQ0NzU1",
     "🎮 𝗚𝗿𝗼𝘂𝗽": "https://t.me/+LZX1DMqIaUs0Mjc1",
 }
 
