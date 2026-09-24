@@ -18,7 +18,7 @@ BOT_TOKEN = "8875158541:AAEX6A0cYzwdJeESRrHX-APSiALHHTQRgJM"
 CHANNELS = {
     "🔥 𝐉𝐀𝐋𝐁𝐀": "https://t.me/+ncQKOjYSU3o5MGZl",
     "💀 𝐓𝐑𝐗": "https://t.me/+R--o4zJimuxhNDM1",
-    "📢 𝐓𝐑𝐗 II": "https://t.me/YOUR_MAIN_CHANNEL",
+    "📢 𝐓𝐑𝐗 II": "https://t.me/+oiU1AGIiPWQ0NzU1",
     "🎮 𝗚𝗿𝗼𝘂𝗽": "https://t.me/+LZX1DMqIaUs0Mjc1",
 }
 
