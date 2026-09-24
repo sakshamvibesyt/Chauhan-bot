@@ -1,38 +1,37 @@
 import os
+import threading
+from flask import Flask
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import Application, CommandHandler, ContextTypes
 
-# ============================================================
-# 1. YAHAN APNA BOT TOKEN DALO
-# ============================================================
-BOT_TOKEN = "8875158541:AAEX6A0cYzwdJeESRrHX-APSiALHHTQRgJM"
+BOT_TOKEN = os.getenv("BOT_TOKEN", "PASTE_YOUR_BOT_TOKEN_HERE")
 
-# ============================================================
-# 2. YAHAN APNE CHANNELS ADD / CHANGE KARO
-#
-# Format:
-# "BUTTON NAME": "https://t.me/channelusername"
-#
-# Jitne channels chaho utne add kar sakte ho.
-# ============================================================
 CHANNELS = {
-    "🔥 𝐉𝐀𝐋𝐁𝐀": "https://t.me/+ncQKOjYSU3o5MGZl",
-    "💀 𝐓𝐑𝐗": "https://t.me/+R--o4zJimuxhNDM1",
-    "📢 𝐓𝐑𝐗 II": "https://t.me/+oiU1AGIiPWQ0NzU1",
-    "🎮 𝗚𝗿𝗼𝘂𝗽": "https://t.me/+LZX1DMqIaUs0Mjc1",
+    "🔥 𝐉𝐀𝐋𝐁𝐀": "https://t.me/YOUR_JALBA_CHANNEL",
+    "💀 𝐃𝐃𝐎𝐒": "https://t.me/YOUR_DDOS_CHANNEL",
+    "📢 𝐌𝐀𝐈𝐍 𝐂𝐇𝐀𝐍𝐍𝐄𝐋": "https://t.me/YOUR_MAIN_CHANNEL",
+    "🎮 𝐆𝐀𝐌𝐈𝐍𝐆": "https://t.me/YOUR_GAMING_CHANNEL",
 }
 
-# ============================================================
-# 3. DEVELOPER BUTTON
-# Click karne par tumhari Telegram profile khulegi.
-# ============================================================
 DEVELOPER_NAME = "⚡ 𝐃𝐄𝐕𝐄𝐋𝐎𝐏𝐄𝐑"
 DEVELOPER_LINK = "https://t.me/Sakshamvenus"
 
+web = Flask(__name__)
+
+@web.get("/")
+def home():
+    return "Chouhan XD Bot is running!", 200
+
+@web.get("/health")
+def health():
+    return "OK", 200
+
+def run_web():
+    port = int(os.environ.get("PORT", 10000))
+    web.run(host="0.0.0.0", port=port, use_reloader=False)
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user = update.effective_user
-
     username = f"@{user.username}" if user.username else "Username not set"
     name = user.full_name or "User"
 
@@ -47,43 +46,21 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
         "⚡ 𝐃𝐞𝐯𝐞𝐥𝐨𝐩𝐞𝐝 𝐰𝐢𝐭𝐡 𝐋𝐨𝐯𝐞 𝐛𝐲 𝐒𝐚𝐤𝐬𝐡𝐚𝐦"
     )
 
-    keyboard = []
+    buttons = [InlineKeyboardButton(label, url=link) for label, link in CHANNELS.items()]
+    keyboard = [buttons[i:i+2] for i in range(0, len(buttons), 2)]
+    keyboard.append([InlineKeyboardButton(DEVELOPER_NAME, url=DEVELOPER_LINK)])
 
-    # Channels ko 2 buttons per row mein dikhayega
-    buttons = [
-        InlineKeyboardButton(label, url=link)
-        for label, link in CHANNELS.items()
-    ]
-
-    for i in range(0, len(buttons), 2):
-        keyboard.append(buttons[i:i + 2])
-
-    # Developer button last mein
-    keyboard.append([
-        InlineKeyboardButton(DEVELOPER_NAME, url=DEVELOPER_LINK)
-    ])
-
-    reply_markup = InlineKeyboardMarkup(keyboard)
-
-    await update.message.reply_text(
-        text,
-        reply_markup=reply_markup
-    )
-
+    await update.message.reply_text(text, reply_markup=InlineKeyboardMarkup(keyboard))
 
 def main():
     if BOT_TOKEN == "PASTE_YOUR_BOT_TOKEN_HERE":
-        raise ValueError(
-            "BOT_TOKEN mein apna Telegram bot token paste karo."
-        )
+        raise ValueError("BOT_TOKEN Render Environment mein add karo.")
 
+    threading.Thread(target=run_web, daemon=True).start()
     app = Application.builder().token(BOT_TOKEN).build()
-
     app.add_handler(CommandHandler("start", start))
-
     print("Bot is running...")
     app.run_polling()
-
 
 if __name__ == "__main__":
     main()
