@@ -4,7 +4,7 @@ from flask import Flask
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import Application, CommandHandler, ContextTypes
 
-BOT_TOKEN = os.getenv("BOT_TOKEN", "8875158541:AAEX6A0cYzwdJeESRrHX-APSiALHHTQRgJM")
+BOT_TOKEN = os.getenv("BOT_TOKEN", "8875158541:AAHhBqdxqt3jNgmbWaVevww5CSYZXZmbImU")
 
 CHANNELS = {
     "🔥 𝐉𝐀𝐋𝐁𝐀": "https://t.me/+ncQKOjYSU3o5MGZl",
